@@ -14,6 +14,7 @@ class SalomonBottomBar extends StatelessWidget {
     this.selectedColorOpacity,
     this.itemShape = const StadiumBorder(),
     this.margin = const EdgeInsets.all(8),
+    this.mainAxisAlignment = MainAxisAlignment.spaceBetween,
     this.itemPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
     this.duration = const Duration(milliseconds: 500),
     this.curve = Curves.easeOutQuint,
@@ -43,6 +44,9 @@ class SalomonBottomBar extends StatelessWidget {
   /// A convenience field for the margin surrounding the entire widget.
   final EdgeInsets margin;
 
+  /// The horizontal alignment of the `SalomonBottomBarItem`s within the `SalomonBottomBar`.
+  final MainAxisAlignment mainAxisAlignment;
+
   /// The padding of each item.
   final EdgeInsets itemPadding;
 
@@ -59,7 +63,7 @@ class SalomonBottomBar extends StatelessWidget {
     return Padding(
       padding: margin,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: mainAxisAlignment,
         children: [
           for (final item in items)
             TweenAnimationBuilder<double>(
